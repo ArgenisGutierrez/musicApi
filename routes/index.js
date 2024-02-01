@@ -15,8 +15,7 @@
 
 // readdirSync(PATH_ROUTES).filter((file) => {
 //   const name = removeExtension(file);
-//   import router from `./${file}`;
 //   if (name != 'index') {
-//     routerIndex.use(`/${name}`, router);
+//     routerIndex.use(`/${name}`, require(`./${file}`)); <-funciona solo con comomjs y no con modulos
 //   };
 // });

@@ -1,7 +1,10 @@
-import expres from 'express';
-export const tracksRouter = expres.Router();
+import { Router } from 'express';
+import { TracksController } from '../controllers/tracks.js';
+export const tracksRouter = Router();
 
-router.get('/tracks', (req, res) => {
-  const data = ["hola", "mundo"];
-  res.send({ data });
-});
+tracksRouter.get('/', TracksController.getItems);
+tracksRouter.post('/', TracksController.createItem);
+
+tracksRouter.get('/:id', TracksController.getItem);
+tracksRouter.patch('/:id', TracksController.updateItem);
+tracksRouter.delete('/:id', TracksController.deleteItem);
