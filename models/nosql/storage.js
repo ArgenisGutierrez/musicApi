@@ -14,4 +14,4 @@ const StorageScheme = new mongoose.Schema(
   }
 );
 
-export const storages = mongoose.model("storages", StorageScheme);
+export const storagesModel = mongoose.model("storages", StorageScheme);

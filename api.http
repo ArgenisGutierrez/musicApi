@@ -1,3 +1,4 @@
+#### Tracks ####
 ###GET a tracks
 GET http://localhost:3001/api/tracks
 
@@ -19,4 +20,12 @@ Content-Type: application/json
     "end": 0
   },
   "mediaId": "621e7499a1f699063f5114bc"
+}
+
+#### Storage ####
+POST http://localhost:3001/api/storage
+Content-Type: image/png
+
+{
+  "myfile": <./1341774.png
 }
