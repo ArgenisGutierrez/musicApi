@@ -2,6 +2,7 @@
 ###GET a tracks
 GET http://localhost:3001/api/tracks
 
+ # NOTE: el mediaId se toma del id generado al subir el archivo con storage
 ###POST a tracks
 POST http://localhost:3001/api/tracks
 Content-Type: application/json
@@ -19,13 +20,33 @@ Content-Type: application/json
     "start": 1,
     "end": 0
   },
-  "mediaId": "621e7499a1f699063f5114bc"
+  "mediaId": "621e7499a1f699063f5114bc" 
 }
 
-#### Storage ####
-POST http://localhost:3001/api/storage
-Content-Type: image/png
+###Tracks Validator
+POST http://localhost:3001/api/tracks
+Content-Type: application/json
 
 {
-  "myfile": <./1341774.png
+  "name": "Arfhel",
+  "album": "Album",
+  "cover": "http://tttt.com",
+  "artist": {
+    "name": "Arfhel",
+    "nickname": "Arfhel V",
+    "nationality": "Mxn"
+  },
+  "duration":{
+    "start": 1,
+    "end": 0
+  }
+}
+
+ # WARN: No soporta mandar archivos solo queda usar postman
+#### Storage ####
+POST http://localhost:3001/api/storage
+Content-Type: multipart/form-data
+
+{
+  <./1341774.png
 }

@@ -1,5 +1,11 @@
 import { tracksModel } from '../models/nosql/tracks.js'
+
 export class TracksController {
+  /**
+   * Obtener todos los tracks de la BD
+   * @param {any} req 
+   * @param {any} res 
+   */
   static async getItems(req, res) {
     const data = await tracksModel.find({});
     res.send({ data });
