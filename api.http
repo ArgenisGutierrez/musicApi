@@ -1,9 +1,10 @@
-#### Tracks ####
-###GET a tracks
+######################################################### Tracks ##################################################################
+
+###Listar de Tracks
 GET http://localhost:3001/api/tracks
 
- # NOTE: el mediaId se toma del id generado al subir el archivo con storage
-###POST a tracks
+#### Crear Track     NOTE: el mediaId se toma del id generado al subir el archivo con storage
+
 POST http://localhost:3001/api/tracks
 Content-Type: application/json
 
@@ -23,9 +24,34 @@ Content-Type: application/json
   "mediaId": "621e7499a1f699063f5114bc" 
 }
 
-###Tracks Validator
+###Tracks prueba de limpia de datos recibidos en la request
+
 POST http://localhost:3001/api/tracks
 Content-Type: application/json
+
+{
+  "dato":"basura",
+  "name": "Arfhel",
+  "album": "Album",
+  "cover": "http://tttt.com",
+  "artist": {
+    "name": "Arfhel",
+    "nickname": "Arfhel V",
+    "nationality": "Mxn"
+  },
+  "duration":{
+    "start": 1,
+    "end": 0
+  },
+  "mediaId": "621e7499a1f699063f5114bc" 
+}
+
+
+###Tracks middleware con custom headers prueba
+
+POST http://localhost:3001/api/tracks
+Content-Type: application/json
+KEY_API:arfhel
 
 {
   "name": "Arfhel",
@@ -39,11 +65,52 @@ Content-Type: application/json
   "duration":{
     "start": 1,
     "end": 0
+  },
+  "mediaId": "621e7499a1f699063f5114bc" 
+}
+
+###Tracks Validator
+
+POST http://localhost:3001/api/tracks
+Content-Type: application/json
+
+{
+  "name": "Arfhel",
+  "cover": "http://tttt.com",
+  "artist": {
+    "name": "Arfhel",
+    "nickname": "Arfhel V",
+    "nationality": "Mxn"
+  },
+  "duration":{
+    "start": 1,
+    "end": 0
   }
 }
 
- # WARN: No soporta mandar archivos solo queda usar postman
-#### Storage ####
+###Listar un track
+
+GET http://localhost:3001/api/tracks/65c30e67c15b5faac1cf2b3a
+###Actualizar un Track
+PATCH http://localhost:3001/api/tracks/65c30e67c15b5faac1cf2b3a
+Content-Type: application/json
+
+{
+  "dato":"basura",
+  "name":"Arfhel",
+  "artist":{
+    "name":"Arfhel",
+    "nickname":"Arfhel",
+    "nationality":"Mxn"
+  }
+}
+
+###Eliminar Track
+DELETE http://localhost:3001/api/tracks/65c30e67c15b5faac1cf2b3a
+
+############################################################### Storage #############################################################
+
+# WARN: No soporta mandar archivos solo queda usar postman
 POST http://localhost:3001/api/storage
 Content-Type: multipart/form-data
 

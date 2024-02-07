@@ -17,3 +17,34 @@ export const validatorCreateItem = [
     validateResult(req, res, next)
   }
 ];
+
+export const validatorGetItem = [
+  check("id").exists().notEmpty().isMongoId(),
+  (req, res, next) => {
+    validateResult(req, res, next)
+  }
+];
+
+export const validatorUpdateItem = [
+  check("id").exists().notEmpty().isMongoId(),
+  check("name").optional(),
+  check("album").optional(),
+  check("cover").optional(),
+  check("artist").optional(),
+  check("artist.name").optional(),
+  check("artist.nickname").optional(),
+  check("artist.nationality").optional(),
+  check("duration").optional(),
+  check("duration.start").optional(),
+  check("duration.end").optional(),
+  (req, res, next) => {
+    validateResult(req, res, next)
+  }
+];
+
+export const validatorDeleteItem = [
+  check("id").exists().notEmpty().isMongoId(),
+  (req, res, next) => {
+    validateResult(req, res, next)
+  }
+];
