@@ -75,8 +75,9 @@ export class TracksController {
    */
   static async deleteItem(req, res) {
     try {
-      const id = req.params;
-      const data = await tracksModel.deleteOne(id);
+      req = matchedData(req);
+      const { id } = req;
+      const data = await tracksModel.delete({ _id: id });
       res.send({ data });
     } catch (error) {
       handleHttpError(res, 'Error al borra el track', 403);

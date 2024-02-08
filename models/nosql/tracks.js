@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import MongooseDelete from "mongoose-delete";
 
 const TracksScheme = new mongoose.Schema(
   {
@@ -46,3 +47,6 @@ const TracksScheme = new mongoose.Schema(
   }
 );
 export const tracksModel = mongoose.model("tracks", TracksScheme);
+
+// NOTE: Plugin que permite el softdeleted con la config para sobreescribir los metodos nativos de mongoose
+TracksScheme.plugin(MongooseDelete, { overrideMethods: "all" });

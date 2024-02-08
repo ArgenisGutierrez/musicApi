@@ -14,14 +14,14 @@ export const validatorCreateItem = [
   check("duration.end").exists().notEmpty(),
   check("mediaId").exists().notEmpty().isMongoId(),
   (req, res, next) => {
-    validateResult(req, res, next)
+    return validateResult(req, res, next)
   }
 ];
 
 export const validatorGetItem = [
   check("id").exists().notEmpty().isMongoId(),
   (req, res, next) => {
-    validateResult(req, res, next)
+    return validateResult(req, res, next)
   }
 ];
 
@@ -38,13 +38,13 @@ export const validatorUpdateItem = [
   check("duration.start").optional(),
   check("duration.end").optional(),
   (req, res, next) => {
-    validateResult(req, res, next)
+    return validateResult(req, res, next)
   }
 ];
 
 export const validatorDeleteItem = [
   check("id").exists().notEmpty().isMongoId(),
   (req, res, next) => {
-    validateResult(req, res, next)
+    return validateResult(req, res, next)
   }
 ];

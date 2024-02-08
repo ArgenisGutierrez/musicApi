@@ -21,7 +21,7 @@ Content-Type: application/json
     "start": 1,
     "end": 0
   },
-  "mediaId": "621e7499a1f699063f5114bc" 
+  "mediaId": "65c421c8f7da2f76d34633d3"
 }
 
 ###Tracks prueba de limpia de datos recibidos en la request
@@ -91,6 +91,7 @@ Content-Type: application/json
 ###Listar un track
 
 GET http://localhost:3001/api/tracks/65c30e67c15b5faac1cf2b3a
+
 ###Actualizar un Track
 PATCH http://localhost:3001/api/tracks/65c30e67c15b5faac1cf2b3a
 Content-Type: application/json
@@ -106,7 +107,8 @@ Content-Type: application/json
 }
 
 ###Eliminar Track
-DELETE http://localhost:3001/api/tracks/65c30e67c15b5faac1cf2b3a
+
+DELETE http://localhost:3001/api/tracks/65c421f5f7da2f76d34633d5
 
 ############################################################### Storage #############################################################
 
