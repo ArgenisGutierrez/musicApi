@@ -119,3 +119,27 @@ Content-Type: multipart/form-data
 {
   <./1341774.png
 }
+
+############################################################### Auth ##################################################################
+#####Creacion de usuario
+
+POST http://localhost:3001/api/register
+Content-Type: application/json
+
+{
+  "name": "Argenis Gutierrez",
+  "age": 28,
+  "email": "argenis@hotmail.com",
+  "password": "argenis123"
+}
+
+##### Login
+
+POST http://localhost:3001/api/login
+Content-Type: application/json
+
+{
+  "email":"argenis@hotmail.com",
+  "password": "argenis123"
+}
+

@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import { matchedData } from 'express-validator';
 import { tracksModel } from '../models/nosql/tracks.js'
 import { handleHttpError } from '../utils/handelError.js';
@@ -76,8 +77,12 @@ export class TracksController {
   static async deleteItem(req, res) {
     try {
       req = matchedData(req);
-      const { id } = req;
-      const data = await tracksModel.delete({ _id: id });
+      const id = req.id;
+      const findData = await tracksModel.delete({ _id: id });
+      const data = {
+        findData: findData,
+        deleted: true,
+      };
       res.send({ data });
     } catch (error) {
       handleHttpError(res, 'Error al borra el track', 403);

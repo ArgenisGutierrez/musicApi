@@ -7,5 +7,5 @@ storageRouter.get('/', storageController.getItems);
 storageRouter.post('/', uploadMiddleware.single("myfile"), storageController.createItem);
 
 storageRouter.get('/:id', storageController.getItem);
-storageRouter.patch('/:id', storageController.updateItem);
+// storageRouter.patch('/:id', storageController.updateItem);
 storageRouter.delete('/:id', storageController.deleteItem);
